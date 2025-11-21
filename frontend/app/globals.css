@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root { --foreground-rgb: 0, 0, 0; }
+body { font-family: 'Inter', sans-serif; background: #f8fafc; margin: 0; padding: 0; }
+
+/* =========================================
+   1. LOGIN PAGE STYLES
+   ========================================= */
+.auth-wrapper {
+    background: linear-gradient(127deg, #0f172a 0%, #1e293b 47%, #334155 100%);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.auth-container {
+    display: flex; max-width: 1100px; width: 100%; background: #ffffff;
+    border-radius: 16px; overflow: hidden; box-shadow: 0 24px 48px rgba(0, 0, 0, 0.24);
+}
+@media (max-width: 968px) { .auth-container { flex-direction: column; } }
+
+.left-panel {
+    flex: 1; background: linear-gradient(165deg, #2563eb 0%, #1e40af 100%);
+    padding: 60px 50px; color: white; display: flex; flex-direction: column;
+    justify-content: space-between; position: relative; overflow: hidden;
+}
+.left-panel::before { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: rgba(255, 255, 255, 0.08); border-radius: 50%; }
+.brand h1 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+.brand p { font-size: 15px; opacity: 0.92; line-height: 1.6; font-weight: 300; }
+.feature-item { display: flex; align-items: flex-start; margin-bottom: 28px; }
+.feature-icon { width: 44px; height: 44px; background: rgba(255, 255, 255, 0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 18px; flex-shrink: 0; backdrop-filter: blur(10px); }
+.feature-icon svg { width: 22px; height: 22px; stroke: white; stroke-width: 2; fill: none; }
+.feature-content h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.feature-content p { font-size: 14px; opacity: 0.88; font-weight: 300; }
+.right-panel { flex: 1; padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; }
+.auth-header { margin-bottom: 36px; }
+.auth-header h2 { font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+.auth-header p { font-size: 15px; color: #64748b; }
+.tab-container { display: flex; gap: 8px; margin-bottom: 32px; background: #f1f5f9; padding: 6px; border-radius: 10px; }
+.tab { flex: 1; padding: 12px 24px; border: none; background: transparent; color: #64748b; font-size: 15px; font-weight: 600; cursor: pointer; border-radius: 7px; transition: all 0.3s ease; }
+.tab.active { background: white; color: #2563eb; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12); }
+.form-group { margin-bottom: 22px; }
+.form-group label { display: block; font-size: 14px; font-weight: 600; color: #334155; margin-bottom: 8px; }
+.input-wrapper { position: relative; }
+.input-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; stroke: #94a3b8; stroke-width: 2; fill: none; }
+.auth-input { width: 100%; padding: 14px 16px 14px 48px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 15px; color: #0f172a; transition: all 0.3s ease; }
+.auth-input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+.submit-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 10px; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
+
+/* =========================================
+   2. DASHBOARD STYLES
+   ========================================= */
+.header { background: white; border-bottom: 1px solid #e2e8f0; padding: 18px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); }
+.header-content { max-width: 1400px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+.logo-icon svg { width: 22px; height: 22px; stroke: white; stroke-width: 2.5; fill: none; }
+.logo h1 { font-size: 20px; font-weight: 700; color: #0f172a; letter-spacing: -0.3px; }
+.user-menu { display: flex; align-items: center; gap: 20px; }
+.user-info { display: flex; align-items: center; gap: 12px; padding: 8px 16px 8px 8px; background: #f8fafc; border-radius: 24px; cursor: pointer; transition: background 0.3s ease; }
+.user-info:hover { background: #f1f5f9; }
+.avatar { width: 36px; height: 36px; background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; color: white; font-size: 14px; }
+.user-details { display: flex; flex-direction: column; }
+.user-name { font-size: 14px; font-weight: 600; color: #0f172a; line-height: 1.2; }
+.user-email { font-size: 12px; color: #64748b; }
+.logout-btn { padding: 9px 18px; background: white; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; }
+.logout-btn:hover { border-color: #cbd5e1; background: #f8fafc; }
+.main-content { max-width: 1400px; margin: 0 auto; padding: 32px 32px 60px; }
+.upload-section { background: white; border-radius: 16px; padding: 36px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); border: 1px solid #e2e8f0; }
+.section-title { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 8px; letter-spacing: -0.3px; }
+.section-subtitle { font-size: 14px; color: #64748b; margin-bottom: 28px; }
+.upload-area { border: 2px dashed #cbd5e1; border-radius: 12px; padding: 48px 32px; text-align: center; background: #f8fafc; transition: all 0.3s ease; cursor: pointer; position: relative; }
+.upload-area:hover, .upload-area.dragover { border-color: #2563eb; background: #eff6ff; }
+.upload-icon { width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15); }
+.upload-icon svg { width: 28px; height: 28px; stroke: #2563eb; stroke-width: 2; fill: none; }
+.upload-text { font-size: 16px; font-weight: 600; color: #0f172a; margin-bottom: 6px; }
+.upload-subtext { font-size: 14px; color: #64748b; margin-bottom: 20px; }
+.upload-btn { padding: 11px 24px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+.upload-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3); }
+.image-preview { display: none; margin-top: 28px; }
+.image-preview.active { display: block; }
+.preview-container { display: flex; gap: 24px; align-items: flex-start; }
+.preview-image-wrapper { flex: 1; position: relative; border-radius: 12px; overflow: hidden; background: #f1f5f9; max-width: 500px; }
+.preview-image { width: 100%; height: auto; display: block; }
+.preview-actions { flex: 0 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.action-btn { padding: 12px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; }
+.detect-btn { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+.detect-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4); }
+.remove-btn { background: white; color: #ef4444; border: 1.5px solid #fecaca; }
+.remove-btn:hover { background: #fef2f2; border-color: #fca5a5; }
+.results-section { display: none; margin-top: 28px; }
+.results-section.active { display: block; }
+.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+.result-card { background: white; border-radius: 16px; padding: 28px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); border: 1px solid #e2e8f0; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.card-title { font-size: 17px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; }
+.card-badge { padding: 5px 12px; background: #eff6ff; color: #2563eb; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.annotated-image-wrapper { border-radius: 10px; overflow: hidden; background: #f1f5f9; }
+.annotated-image { width: 100%; height: auto; display: block; }
+.table-wrapper { overflow-x: auto; border-radius: 10px; border: 1px solid #e2e8f0; }
+.results-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.results-table thead { background: #f8fafc; }
+.results-table th { padding: 14px 16px; text-align: left; font-weight: 600; color: #475569; font-size: 13px; text-transform: uppercase; letter-spacing: 0.3px; cursor: pointer; user-select: none; }
+.results-table th:hover { background: #f1f5f9; }
+.results-table td { padding: 14px 16px; border-top: 1px solid #e2e8f0; color: #334155; }
+.results-table tbody tr:hover { background: #f8fafc; }
+.object-class { display: inline-flex; align-items: center; padding: 4px 10px; background: #f1f5f9; color: #475569; border-radius: 6px; font-weight: 500; font-size: 13px; }
+.confidence-bar { display: flex; align-items: center; gap: 10px; }
+.confidence-progress { flex: 1; height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+.confidence-fill { height: 100%; background: linear-gradient(90deg, #10b981 0%, #059669 100%); border-radius: 3px; transition: width 0.4s ease; }
+.confidence-value { font-weight: 600; color: #0f172a; font-size: 13px; min-width: 45px; }
+.bbox-coords { font-family: 'Courier New', monospace; font-size: 12px; color: #64748b; }
+.qa-section { background: white; border-radius: 16px; padding: 28px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); border: 1px solid #e2e8f0; }
+.qa-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.qa-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.qa-icon svg { width: 22px; height: 22px; stroke: white; stroke-width: 2.5; fill: none; }
+.chat-container { max-height: 320px; overflow-y: auto; margin-bottom: 20px; padding: 16px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; }
+.chat-message { margin-bottom: 16px; display: flex; gap: 12px; }
+.chat-message.user { flex-direction: row-reverse; }
+.message-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 12px; flex-shrink: 0; }
+.message-avatar.user { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); color: white; }
+.message-avatar.ai { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; }
+.message-content { max-width: 75%; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.6; }
+.chat-message.user .message-content { background: #2563eb; color: white; border-bottom-right-radius: 4px; }
+.chat-message.ai .message-content { background: white; color: #334155; border: 1px solid #e2e8f0; border-bottom-left-radius: 4px; }
+.qa-input-wrapper { display: flex; gap: 12px; }
+.qa-input { flex: 1; padding: 13px 18px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 14px; transition: all 0.3s ease; }
+.qa-input:focus { outline: none; border-color: #8b5cf6; box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1); }
+.qa-submit { padding: 13px 24px; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; }
+.qa-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(139, 92, 246, 0.3); }
+
+/* ✅ ADDED: Password validation styles */
+.password-errors {
+  margin-top: 8px;
+  padding: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+}
+
+.error-text {
+  font-size: 12px;
+  color: #dc2626;
+  margin: 4px 0;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}

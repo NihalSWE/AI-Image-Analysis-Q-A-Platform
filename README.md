@@ -94,14 +94,18 @@ Frontend UI: ```http://localhost:3000```
 Backend API: ```http://localhost:8000```
 
 ###📂 Project Structure
-├── ai_image_app/        # Django Backend
-│   ├── vision/          # Object Detection Logic (YOLO)
-│   ├── users/           # Auth Logic (JWT)
-│   ├── qa/              # AI Chat Logic (Gemini + Fallback)
-│   ├── requirements.txt # Python Dependencies
-│   └── Dockerfile       # Backend Container Config
-├── frontend/            # Next.js Frontend
-│   ├── app/             # Pages (Dashboard, Auth)
-│   ├── components/      # UI Components
-│   └── Dockerfile       # Frontend Container Config
-└── docker-compose.yml   # Orchestration for Frontend + Backend
+```
+ai_image_app/        # Django Backend
+├── vision/          # Object Detection Logic (YOLO)
+├── users/           # Auth Logic (JWT)
+├── qa/              # AI Chat Logic (Gemini + Fallback)
+├── requirements.txt # Python Dependencies
+└── Dockerfile       # Backend Container Config
+
+frontend/            # Next.js Frontend
+├── app/             # Pages (Dashboard, Auth)
+├── components/      # UI Components
+└── Dockerfile       # Frontend Container Config
+
+docker-compose.yml   # Orchestration for Frontend + Backend
+```
