@@ -69,25 +69,31 @@ If you prefer using Git, run this command in your terminal:
 ```bash
 git clone [https://github.com/NihalSWE/AI-Image-Analysis-Q-A-Platform.git](https://github.com/NihalSWE/AI-Image-Analysis-Q-A-Platform.git)
 cd AI-Image-Analysis-Q-A-Platform
+```
+## 🏃‍♂️ How to Run the Project
 
-🏃‍♂️ How to Run the Project
 Once you have the project folder open in your terminal (PowerShell, CMD, or Terminal), run this single command to build and start the application.
 
 Copy and paste this command:
 
-Bash
-
+```bash
 docker compose up --build
-Note: Please wait a few minutes for the initial build. Docker will download the Python dependencies and AI models automatically.
+```
 
-🌐 Access the Application
-Once the terminal says "Listening at https://www.google.com/search?q=http://0.0.0.0:8000", open your browser and go to:
 
-Frontend UI: http://localhost:3000
+###📝 Note
 
-Backend API: http://localhost:8000
+Please wait a few minutes for the initial build. Docker will download the Python dependencies and AI models automatically.
 
-📂 Project Structure
+###🌐 Access the Application
+
+Once the terminal says "Listening at http://0.0.0.0:8000", open your browser and go to:
+
+Frontend UI: ```http://localhost:3000```
+
+Backend API: ```http://localhost:8000```
+
+###📂 Project Structure
 ├── ai_image_app/        # Django Backend
 │   ├── vision/          # Object Detection Logic (YOLO)
 │   ├── users/           # Auth Logic (JWT)
@@ -99,4 +105,3 @@ Backend API: http://localhost:8000
 │   ├── components/      # UI Components
 │   └── Dockerfile       # Frontend Container Config
 └── docker-compose.yml   # Orchestration for Frontend + Backend
-

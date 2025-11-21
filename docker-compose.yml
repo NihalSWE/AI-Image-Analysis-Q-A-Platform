@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./ai_image_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ai_image_app:/app
+      # This ensures uploaded images persist even if container restarts
+      - media_volume:/app/media
+    environment:
+      - DEBUG=1
+      # ✅ IMPORTANT: Put your REAL Gemini API Key here for the final submission
+      - GEMINI_API_KEY=AIzaSyBzuhEdaF75IjnXexqeV9_JynxsY1gapIQ
+    # ✅ THE FIX: This command runs migrations AUTOMATICALLY every time it starts.
+    # It ensures all tables (Users, Detections) exist before the server runs.
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api
+
+# Define the volume for media files
+volumes:
+  media_volume:
